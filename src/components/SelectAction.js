@@ -18,7 +18,7 @@ const SelectAction = () => {
 
   return (
     <Dropdown className='float-right my-2 mr-3' isOpen={open} toggle={toggle}>
-      <DropdownToggle caret>Choose Your View</DropdownToggle>
+      <DropdownToggle caret>Choose View</DropdownToggle>
       <DropdownMenu>
         <DropdownItem>
           <NavItem>

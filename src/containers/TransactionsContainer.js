@@ -1,64 +1,62 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {Table} from 'reactstrap';
+import React from 'react';
+import { connect } from 'react-redux';
+import { Table } from 'reactstrap';
 import ColumnHeadings from '../components/ColumnHeadings';
 import ViewHeader from '../components/ViewHeader';
 const moment = require('moment');
 
-
 const mapStateToProps = (state) => {
   return {
-    history: state.portfolio.history
+    history: state.portfolio.history,
   };
 };
-const mapDispatchToProps = (dispatch) => {
+
+const mapDispatchToProps = () => {
   return {};
 };
 
-class TransactionsContainer extends Component {
-  render() {
-    const {history} = this.props;
-    let transactionsMap = Object.keys(history)
+const TransactionsContainer = (props) => {
+  const { history } = props;
+
+  let transactionsMap = Object.keys(history)
     .reduce((transactions, ticker) => {
-      return [
-        ...transactions,
-        ...history[ticker]
-      ];
+      return [...transactions, ...history[ticker]];
     }, [])
     .sort((transactionA, transactionB) => {
-      return moment(transactionA.date).isBefore(transactionB.date)
+      return moment(transactionA.date).isBefore(transactionB.date);
     })
-    .map(transaction => {
+    .map((transaction) => {
       return (
-        <tr key={`${transaction.ticker}${transaction.quantity}${transaction.date}`}>
+        <tr
+          key={`${transaction.ticker}${transaction.quantity}${transaction.date}`}
+        >
           <td>{transaction.date}</td>
           <td>{transaction.ticker}</td>
-          <td>{(transaction.quantity > 0) ? "Buy" : "Sell"}</td>
+          <td>{transaction.quantity > 0 ? 'Buy' : 'Sell'}</td>
           <td>{transaction.quantity}</td>
           <td>{transaction.price}</td>
         </tr>
       );
-    })
-    return (
-      <div>
-        <ViewHeader heading={'Transactions'} />
-        
-        <Table>
-          <thead>
-            <tr>
-              <ColumnHeadings 
-                headings= {["Date","Symbol","Type","Quantity","Price"]}
-              />
-            </tr>
-          </thead>
-          <tbody>
-            {transactionsMap}
-          </tbody>
-        </Table>
-      </div>
-    );
-  }
-  
-}
+    });
+  return (
+    <div>
+      <ViewHeader heading={'Transactions'} />
 
-export default connect(mapStateToProps, mapDispatchToProps)(TransactionsContainer);
+      <Table>
+        <thead>
+          <tr>
+            <ColumnHeadings
+              headings={['Date', 'Symbol', 'Type', 'Quantity', 'Price']}
+            />
+          </tr>
+        </thead>
+        <tbody>{transactionsMap}</tbody>
+      </Table>
+    </div>
+  );
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(TransactionsContainer);

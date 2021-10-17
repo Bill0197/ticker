@@ -14,6 +14,7 @@ const mapStateToProps = (state) => {
     history: state.portfolio.history,
   };
 };
+
 const mapDispatchToProps = (dispatch) => {
   return {
     setCurrentTicker: (ticker) => {

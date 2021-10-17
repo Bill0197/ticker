@@ -47,6 +47,7 @@ class StocksTableContainer extends Component {
       getStocks,
       date: { current },
     } = nextProps;
+
     if (this.props.date.current !== nextProps.date.current) {
       getStocks(
         stocksDefaults,
@@ -63,6 +64,7 @@ class StocksTableContainer extends Component {
       stocks,
       date: { current },
     } = this.props;
+
     return (
       <div>
         <Filter />

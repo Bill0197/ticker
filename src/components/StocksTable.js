@@ -16,6 +16,7 @@ const StocksTable = ({ stocks, dates, setCurrentTicker, currentDate }) => {
     let prices = dates.map((date, j) => (
       <td key={j}>{stockData.eodPriceByDay[date]}</td>
     ));
+
     return (
       <tr key={i}>
         <td>{stockData.ticker}</td>
@@ -31,8 +32,7 @@ const StocksTable = ({ stocks, dates, setCurrentTicker, currentDate }) => {
               )
             }
           >
-            {' '}
-            Trade{' '}
+            Trade
           </Link>
         </td>
       </tr>
