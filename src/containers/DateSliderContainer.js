@@ -21,8 +21,7 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-const DateSliderContainer = () => {
-  super(props);
+const DateSliderContainer = (props) => {
   const [state, setState] = useState({
     current: props.date.current,
   });
@@ -37,6 +36,7 @@ const DateSliderContainer = () => {
 
   const format = (sliderVal) => dateSliderArray[sliderVal];
   let current = state.current;
+
   return (
     <div>
       <Slider

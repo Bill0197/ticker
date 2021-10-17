@@ -24,7 +24,7 @@ const initialState = {
     history: {
       GOOG: [
         {
-          date: '2017-02-07',
+          date: '2021-01-01',
           price: 806.97,
           quantity: 100,
           ticker: 'GOOG',
