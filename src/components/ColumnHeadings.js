@@ -1,7 +1,7 @@
 import React from 'react';
 
-const ColumnHeadings = ({headings}) => {
+const ColHeadings = ({ headings }) => {
   return headings.map((headingText, i) => <th key={i}>{headingText}</th>);
 };
 
-export default ColumnHeadings;
+export default ColHeadings;

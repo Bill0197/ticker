@@ -1,4 +1,3 @@
-/* global fetch */
 import getDataPromise from '../temp-data/tempDataWrapper';
 import { updateCurrentTicker } from './TradeActions';
 const {
@@ -15,18 +14,21 @@ export const getStocksRequest = () => {
     type: GET_STOCKS_REQUEST,
   };
 };
+
 export const getStocksSuccess = (data) => {
   return {
     type: GET_STOCKS_SUCCESS,
     data: data,
   };
 };
+
 export const getStocksFailure = (error) => {
   return {
     type: GET_STOCKS_FAILURE,
     error: error,
   };
 };
+
 export const getStocks = (
   stocks = stocksDefaults,
   dates = createDatesList(DEFAULT_LATEST_DATE),

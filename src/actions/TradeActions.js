@@ -7,6 +7,7 @@ export const setCurrentTicker = (data) => {
     data: data,
   };
 };
+
 export const updateCurrentTicker = (data) => {
   return {
     type: UPDATE_CURRENT_TICKER,

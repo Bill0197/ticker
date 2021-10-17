@@ -9,6 +9,7 @@ export const selectingDate = (date) => {
     data: date,
   };
 };
+
 export const setSelectedDate = (date = DEFAULT_LATEST_DATE) => {
   return {
     type: SET_SELECTED_DATE,
