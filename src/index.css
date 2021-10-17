@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.App {
+  min-height: 100%;
+}
+.full-height {
+  min-height: 100%;
+}
+
+.card-header {
+  width: 100%;
+  border: 1px solid #00000020;
+  border-radius: 3px;
+}
+
+.show-border {
+  border: 1px solid gray;
+}
+
+/* date slider fill-color */
+.rangeslider__fill { 
+  background-color: white !important; 
+}
